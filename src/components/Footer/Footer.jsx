@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.scss";
+import { Link } from "react-router-dom";
 
 function Footer() {
     return (
@@ -8,46 +9,43 @@ function Footer() {
             <ul>
                 <h4>Doormat Navigation</h4>
                 <li>
-                    <a href="#">HOME</a>
+                    <Link to="/">HOME</Link>
                 </li>
                 <li>
-                    <a href="#">ABOUT</a>
+                    <Link to="/about">ABOUT</Link>
                 </li>
                 <li>
-                    <a href="#">MENU</a>
+                    <Link to="/menu">MENU</Link>
                 </li>
                 <li>
-                    <a href="#">RESERVATIONS</a>
+                    <Link to="/reservations">RESERVATIONS</Link>
                 </li>
                 <li>
-                    <a href="#">ORDER ONLINE</a>
+                    <Link to="/order online">ORDER ONLINE</Link>
                 </li>
                 <li>
-                    <a href="#">LOGIN</a>
+                    <Link to="/login">LOGIN</Link>
                 </li>
             </ul>
             <ul>
                 <h4>Contact</h4>
                 <li>
-                    <a href="#">Address</a>
+                    <a href="https://maps.google.com">Address</a>
                 </li>
                 <li>
-                    <a href="#">Phone Number</a>
+                    <a href="tel:+91-9090909090">Phone Number</a>
                 </li>
                 <li>
-                    <a href="#">Email</a>
+                    <a href="mailto:abc@gmail.com">Email</a>
                 </li>
             </ul>
             <ul>
                 <h4>Social Media Links</h4>
                 <li>
-                    <a href="#">Address</a>
+                    <a href="https://www.facebook.com">Facebook</a>
                 </li>
                 <li>
-                    <a href="#">Phone Number</a>
-                </li>
-                <li>
-                    <a href="#">Email</a>
+                    <a href="https://www.twitter.com">Twitter</a>
                 </li>
             </ul>
         </footer>

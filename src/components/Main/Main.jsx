@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../Card/Card";
 import "./Main.scss";
+import { Link } from "react-router-dom";
 
 function Main() {
     return (
@@ -13,7 +14,11 @@ function Main() {
                         We are a family owned Mediterranean restaurant, focused
                         on traditional recipes served with a modern twist
                     </p>
-                    <button class="btn hero__btn">Reserve a Table</button>
+                    <Link to="/booking">
+                        <button className="btn hero__btn">
+                            Reserve a Table
+                        </button>
+                    </Link>
                 </div>
                 <div className="hero__image">
                     <img src="images/restauranfood.jpg" alt="" />
