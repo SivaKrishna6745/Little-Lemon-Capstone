@@ -1,0 +1,185 @@
+:root {
+    --theme-color: hsl(160, 13%, 33%);
+    --button-color: hsl(50, 100%, 50%);
+    --price-color: hsl(19, 76%, 73%);
+    --main-heading-color: hsl(50, 85%, 41%);
+    --primary-color: hsl(0, 0%, 100%);
+    --secondary-color: hsl(0, 0%, 0%);
+
+    --heading-fs: 60px;
+    --link-fs: 13px;
+    --subhead-fs: 32px;
+    --para-fs: 18px;
+}
+
+body {
+    margin: 1rem;
+    box-sizing: border-box;
+    font-family: "Markazi Text";
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style-type: none;
+}
+
+a,
+li a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+li a:hover,
+li a:focus {
+    color: hsl(150, 100%, 35%);
+    text-shadow: 0 0 0.1rem black;
+    font-size: var(--para-fs);
+}
+
+/* Header styles */
+
+.header {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+/* Nav styles */
+
+.nav ul {
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+}
+
+/* Main styles */
+
+/* HomePage styles */
+
+.home {
+    /* background-color: var(--theme-color); */
+}
+
+.home .hero {
+    background-color: var(--theme-color);
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+}
+
+.home .hero .hero__description {
+    padding-bottom: 1rem;
+}
+
+.home .hero .hero__description h1 {
+    color: var(--main-heading-color);
+    font-size: var(--heading-fs);
+    line-height: 0;
+}
+
+.home .hero .hero__description h2 {
+    color: var(--primary-color);
+    font-size: var(--subhead-fs);
+    line-height: 0;
+}
+
+.home .hero .hero__description p {
+    color: var(--primary-color);
+    max-width: 50%;
+}
+
+.home .hero .hero__description button {
+    border: none;
+    background-color: var(--button-color);
+    padding: 0.8rem 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.home .hero .hero__image {
+    place-self: start;
+    height: 200px;
+    aspect-ratio: 2/2.5;
+}
+
+.home .hero img {
+    margin-top: 1rem;
+    height: 300px;
+    aspect-ratio: 2/2.3;
+    border-radius: 1rem;
+}
+
+/* BookingPage styles */
+
+.booking {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.booking div:has(img) {
+    place-self: center;
+}
+
+.booking div > img {
+    height: 200px;
+}
+
+.booking .booking__hero {
+    background-color: var(--theme-color);
+    border-radius: 1rem;
+    display: grid;
+    place-items: center;
+}
+
+.booking h1 {
+    color: var(--primary-color);
+    font-size: var(--heading-fs);
+    line-height: 0;
+}
+
+.booking .form {
+    padding: 1rem;
+    color: var(--primary-color);
+    display: grid;
+}
+
+.booking .form .form-group {
+    padding: 1rem;
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center start;
+}
+
+.booking .form .form-group label {
+    padding: 0 1rem;
+    font-size: var(--para-fs);
+}
+
+.booking .form .form-group .form-control {
+    padding: 0.5rem;
+    place-self: end;
+    border-radius: 0.2rem;
+    border: none;
+    outline: none;
+}
+
+.booking .form .btn {
+    border: none;
+    background-color: var(--button-color);
+    padding: 0.8rem 2rem;
+    border-radius: 0.8rem;
+    place-items: center center;
+    cursor: pointer;
+}
+
+/* Footer styles */
+
+.footer {
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.footer .footer__links {
+    display: grid;
+    grid-auto-flow: column;
+}
