@@ -1,5 +1,6 @@
 :root {
     --theme-color: hsl(160, 13%, 33%);
+    --theme-secondary-color: hsl(160, 23%, 43%);
     --button-color: hsl(50, 100%, 50%);
     --price-color: hsl(19, 76%, 73%);
     --main-heading-color: hsl(50, 85%, 41%);
@@ -113,6 +114,9 @@ li a:focus {
 .booking {
     display: grid;
     grid-auto-flow: column;
+    background-color: var(--theme-secondary-color);
+    border-radius: 0.3rem;
+    padding: 1rem;
 }
 
 .booking div:has(img) {
@@ -124,8 +128,6 @@ li a:focus {
 }
 
 .booking .booking__hero {
-    background-color: var(--theme-color);
-    border-radius: 1rem;
     display: grid;
     place-items: center;
 }
