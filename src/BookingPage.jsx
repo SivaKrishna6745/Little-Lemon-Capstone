@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import BookingForm from "./BookingForm";
 
-function BookingPage({ availableTimes }) {
+function BookingPage({ availableTimes, dispatcher }) {
     return (
         <div className="booking">
             <div>
@@ -9,15 +9,8 @@ function BookingPage({ availableTimes }) {
             </div>
             <div className="booking__hero">
                 <BookingForm
-                    // date={date}
-                    // time={time}
-                    // nOG={nOG}
-                    // occasion={occasion}
-                    // setDate={setDate}
-                    // setTime={setTime}
-                    // setNOG={setNOG}
-                    // setOccasion={setOccasion}
                     availableTimes={availableTimes}
+                    dispatcher={dispatcher}
                 />
             </div>
             <div>

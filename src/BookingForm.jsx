@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-function BookingForm({ availableTimes }) {
+function BookingForm({ availableTimes, dispatcher }) {
+    const timeRange = Object.values(availableTimes);
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
     const [nOG, setNOG] = useState(1);
@@ -16,7 +17,10 @@ function BookingForm({ availableTimes }) {
                         id="date"
                         className="form-control"
                         value={date}
-                        onChange={(e) => setDate(e.target.value)}
+                        onChange={(e) => {
+                            setDate(e.target.value);
+                            dispatcher({ type: "updatebooking" });
+                        }}
                     />
                 </div>
                 <div className="form-group">
@@ -27,8 +31,12 @@ function BookingForm({ availableTimes }) {
                         value={time}
                         onChange={(e) => setTime(e.target.value)}
                     >
-                        {availableTimes.map((time, index) => {
-                            return <option key={index}>{time}</option>;
+                        {timeRange.map((time, index) => {
+                            return (
+                                <option key={index} value={time}>
+                                    {time}
+                                </option>
+                            );
                         })}
                     </select>
                 </div>
