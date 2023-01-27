@@ -5,7 +5,7 @@ import HomePage from "./HomePage";
 import BookingPage from "./BookingPage";
 
 function Main() {
-    const updateTimes = (action, state) => {
+    const updateTimes = (state, action) => {
         switch (action.type) {
             case "updatebooking":
                 console.log("state");
@@ -14,15 +14,13 @@ function Main() {
                 return initializeTimes;
         }
     };
-    const initializeTimes = [
-        "17:00",
-        "18:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
-    ];
-    const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes);
+    const initializeTimes = () => {
+        return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+    };
+    const [availableTimes, dispatch] = useReducer(
+        updateTimes,
+        initializeTimes()
+    );
     return (
         <main className="main">
             <Routes>
@@ -32,7 +30,7 @@ function Main() {
                     element={
                         <BookingPage
                             availableTimes={availableTimes}
-                            dispatcher={dispatch}
+                            dispatcher={(val) => dispatch(val)}
                         />
                     }
                 ></Route>

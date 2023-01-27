@@ -7,7 +7,7 @@ function BookingForm({ availableTimes, dispatcher }) {
     const [nOG, setNOG] = useState(1);
     const [occasion, setOccasion] = useState("birthday");
     return (
-        <div>
+        <>
             <h1>Reserve Your Table!!!</h1>
             <form className="form">
                 <div className="form-group">
@@ -68,7 +68,7 @@ function BookingForm({ availableTimes, dispatcher }) {
                     className="btn"
                 />
             </form>
-        </div>
+        </>
     );
 }
 

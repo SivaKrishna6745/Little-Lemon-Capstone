@@ -10,7 +10,7 @@ function BookingPage({ availableTimes, dispatcher }) {
             <div className="booking__hero">
                 <BookingForm
                     availableTimes={availableTimes}
-                    dispatcher={dispatcher}
+                    dispatcher={(val) => dispatcher(val)}
                 />
             </div>
             <div>
