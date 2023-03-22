@@ -1,9 +1,13 @@
 import React, { useReducer, useState } from "react";
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import BookingPage from "./BookingPage";
 import ConfirmedBooking from "./ConfirmedBooking";
+import About from "./About";
+import Menu from "./Menu";
+import Reservations from "./Reservations";
+import OrderOnline from "./Order_Online";
+import Login from "./Login";
 
 const seededRandom = function (seed) {
     var m = 2 ** 35 - 31;
@@ -34,8 +38,8 @@ function Main() {
         switch (action.type) {
             case "updatebooking":
                 const date = new Date(action.payload);
-                console.log(fetchAPI(date));
-                return { ...state };
+                const times = fetchAPI(date);
+                return { ...state, ...times };
             default:
                 return initializeTimes();
         }
@@ -43,10 +47,21 @@ function Main() {
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const submitAPI = function (e, formData) {
-        e.preventDefault();
+    const submitAPI = function (formData) {
+        if (formData) {
+            return true;
+        }
+    };
+
+    const submitForm = (date, time, numberOfGuests, occasion) => {
         setIsSubmitted(true);
-        return true;
+        const formData = {
+            date: date,
+            time: time,
+            numberOfGuests: numberOfGuests,
+            occasion: occasion,
+        };
+        submitAPI(formData);
     };
 
     const date = new Date();
@@ -60,20 +75,29 @@ function Main() {
     return (
         <main className="main">
             <Routes>
-                <Route path="/" element={<HomePage />}></Route>
+                <Route
+                    path="/"
+                    element={<HomePage setIsSubmitted={setIsSubmitted} />}
+                ></Route>
+                <Route path="/about" element={<About />}></Route>
+                <Route path="/menu" element={<Menu />}></Route>
+                <Route path="/reservations" element={<Reservations />}></Route>
+                <Route path="/order_online" element={<OrderOnline />}></Route>
+                <Route path="/login" element={<Login />}></Route>
                 <Route
                     path="/booking"
                     element={
                         <BookingPage
                             availableTimes={availableTimes}
                             dispatcher={(val) => dispatch(val)}
-                            submitAPI={submitAPI}
+                            submitForm={submitForm}
+                            isSubmitted={isSubmitted}
                         />
                     }
                 ></Route>
                 {isSubmitted && (
                     <Route
-                        path="/confimed"
+                        path="/confirmed"
                         element={<ConfirmedBooking />}
                     ></Route>
                 )}

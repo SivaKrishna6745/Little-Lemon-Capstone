@@ -1,7 +1,7 @@
 import React from "react";
 import BookingForm from "./BookingForm";
 
-function BookingPage({ availableTimes, dispatcher }) {
+function BookingPage({ availableTimes, dispatcher, submitAPI }) {
     return (
         <div className="booking">
             <div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function BookingForm({ availableTimes, dispatcher }) {
-    const timeRange = Object.values(availableTimes);
+function BookingForm({ availableTimes, dispatcher, submitAPI }) {
+    const timeRange = availableTimes && Object.values(availableTimes);
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
     const [nOG, setNOG] = useState(1);
@@ -9,7 +9,7 @@ function BookingForm({ availableTimes, dispatcher }) {
     return (
         <>
             <h1>Reserve Your Table!!!</h1>
-            <form className="form">
+            <form className="form" onSubmit={submitAPI}>
                 <div className="form-group">
                     <label htmlFor="date">Choose Date:</label>
                     <input
@@ -19,7 +19,10 @@ function BookingForm({ availableTimes, dispatcher }) {
                         value={date}
                         onChange={(e) => {
                             setDate(e.target.value);
-                            dispatcher({ type: "updatebooking" });
+                            dispatcher({
+                                type: "updatebooking",
+                                payload: e.target.value,
+                            });
                         }}
                     />
                 </div>
@@ -27,17 +30,19 @@ function BookingForm({ availableTimes, dispatcher }) {
                     <label htmlFor="time">Choose Time:</label>
                     <select
                         id="time"
+                        data-testid="time-test"
                         className="form-control"
                         value={time}
                         onChange={(e) => setTime(e.target.value)}
                     >
-                        {timeRange.map((time, index) => {
-                            return (
-                                <option key={index} value={time}>
-                                    {time}
-                                </option>
-                            );
-                        })}
+                        {timeRange &&
+                            timeRange.map((time, index) => {
+                                return (
+                                    <option key={index} value={time}>
+                                        {time}
+                                    </option>
+                                );
+                            })}
                     </select>
                 </div>
                 <div className="form-group">
